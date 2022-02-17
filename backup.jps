@@ -3,7 +3,7 @@ version: 1.8.1
 name: Backup/restore addon for WordPress sites
 id: wp-backup
 logo: /images/backup-logo.png
-description: Backup add-on for WordPress sites. Can be used for creating and rotating backups (which contain webroot files abd DB dump) by the pre-defined schedule or any time on user demand.
+description: Backup add-on for WordPress sites. Can be used for creating and rotating backups (which contain webroot files and DB dump) by the pre-defined schedule or any time on user demand.
 baseUrl: https://raw.githubusercontent.com/DmytroZubelevych/wp-backup/master
 
 targetNodes:
