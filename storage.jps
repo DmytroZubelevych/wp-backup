@@ -4,7 +4,7 @@ name: Backup storage for WordPress
 id: wp-restore
 logo: /images/backup-logo.png
 description: Storage node (single or fault-tolerant scalable GlusterFS cluster) for WordPress site backups (can be used with any WordPress environment available for current user).
-baseUrl: https://raw.githubusercontent.com/SiryjVyiko/DmytroZubelevych/master
+baseUrl: https://raw.githubusercontent.com/DmytroZubelevych/wp-backup/master
 
 onBeforeInit: scripts/storageOnBeforeInit.js
 
