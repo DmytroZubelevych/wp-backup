@@ -336,6 +336,8 @@ actions:
         return resp;
 
   setSchedule:
+    - setGlobals: ${settings.storageName}
+        storageEnv: 
     - if ("${settings.scheduleType}" == 2):
       - convert
     - else:
