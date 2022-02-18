@@ -1,6 +1,6 @@
-var STORAGE_NODE_DISK_LIMITATION,
-    SAME_NODES,
-    MAX_NODES;
+var STORAGE_NODE_DISK_LIMITATION = "storage.node.disk.limitation",
+    SAME_NODES = "environment.maxsamenodescount",
+    MAX_NODES = "environment.maxnodescount";
 
 var max = 7, min = 1, resp, name, value, minStorageSize = 5, maxStorageSize ;
 
@@ -8,11 +8,8 @@ var hasCollaboration = (parseInt('${fn.compareEngine(7.0)}', 10) >= 0),
     q = [];
 
 if (hasCollaboration) {
-        quotas = [
-        { quota : { name: MAX_NODES }, value: parseInt('${quota.environment.maxnodescount}', 10) },
-        { quota : { name: SAME_NODES }, value: parseInt('${quota.environment.maxsamenodescount}', 10) },
-        { quota : { name: STORAGE_NODE_DISK_LIMITATION }, value: parseInt('${quota.disk.limitation}', 10) }
-    ];
+    quotas = JSON.parse('${quota.data}');
+    quotas = [ quotas[STORAGE_NODE_DISK_LIMITATION], quotas[SAME_NODES], quotas[MAX_NODES] ];
 } else {
     quotas = jelastic.billing.account.GetQuotas(STORAGE_NODE_DISK_LIMITATION + ";" + SAME_NODES + ";" + MAX_NODES).array || [];
 }
