@@ -295,7 +295,7 @@ actions:
         
   getStorageCtid:
     - script: |-
-        var storageEnv = '${settings.storageName}'
+        var storageEnv = '${globals.storageEnv}'
         var storageEnvShortName = storageEnv.split(".")[0]
         var resp = jelastic.environment.control.GetEnvInfo(storageEnvShortName, session)
         if (resp.result != 0) return resp
