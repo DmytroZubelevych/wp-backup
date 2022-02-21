@@ -1,8 +1,8 @@
-type: update	
-version: 1.8.1	
-name: Backup/Restore for WordPress Sites	
-id: wp-backup	
-logo: /images/backup-logo.png	
+type: update
+version: 1.8.1
+name: Backup/Restore for WordPress Sites
+id: wp-backup
+logo: /images/backup-logo.png
 description: Backup Add-On for WordPress sites. It can be used to create scheduled backups according to any required timezone and restore corrupted websites, even if the content has been completely deleted.
 baseUrl: https://raw.githubusercontent.com/DmytroZubelevych/wp-backup/master
 
@@ -82,27 +82,27 @@ settings:
               editable: false
               values: values
           3:
-	          - name: cronTime	
-              caption: Backup schedule	
-              tooltip: "<span>A simple <a href=\"https://en.wikipedia.org/wiki/Cron#Overview\"> cron-based</a>	
-    scheduler to automatically start and stop environment based on prescribed timing	
-    instructions.</span><div><b>Note</b> that the required timestamps should be specified	
-    respectively to the UTC time zone.</div>"              	
-              type: string	
+            - name: cronTime
+              caption: Backup schedule
+              tooltip: "<span>A simple <a href=\"https://en.wikipedia.org/wiki/Cron#Overview\"> cron-based</a>
+    scheduler to automatically start and stop environment based on prescribed timing
+    instructions.</span><div><b>Note</b> that the required timestamps should be specified
+    respectively to the UTC time zone.</div>"              
+              type: string
               default: 0 0 * * *
               regexText: Cron syntax is incorrect!
               regex: "^(((([\\\\*]{1}){1,})|((\\\\*\\\\\\/){0,1}(([0-9\\/\\*\\-\\,]{1}){1,}|(([1-5]{1}){1}([0-9\\/\\*\\-\\,]{1}){1,}){1})))
               ((([\\\\*]{1}){1,})|((\\\\*\\\\\\/){0,1}(([0-9\\/\\*\\-\\,]{1}){1,}|(([1]{1}){1}([0-9\\/\\*\\-\\,-]{1}){1,}){1}|([2]{1}){1}([0-3]{1}){1})))
               ((([\\\\*]{1}){1})|((\\\\*\\\\\\/){0,1}(([1-9]{1}){1}|(([1-2]{1}){1}([0-9\\/\\*\\-\\,]{1}){1,5}){1}|([3]{1}){1}([0-1]{1}){1})))
-              ((([\\\\*]{1}){1})|((\\\\*\\\\\\/){0,1}(([1-9]{1}){1}|(([1-2]{1}){1}([0-9\\/\\*\\-\\,]{1}){1,}){1}|([3]{1}){1}([0-1]{1}){1}))|(jan|JAN|feb|FEB|mar|MAR|apr|APR|may|MAY|jun|JUN|jul|JUL|aug|AUG|sep|SEP|okt|OKT|nov|NOV|dec|DEC)(-?\\w+?)?)
-              ((([\\\\*]{1}){1})|((\\\\*\\\\\\/){0,1}(([0-7]{1,}(-?[0-7]?(,[0-7]){0,6})){1}))|((sun|SUN|mon|MON|tue|TUE|wed|WED|thu|THU|fri|FRI|sat|SAR)?(,(sun|SUN|mon|MON|tue|TUE|wed|WED|thu|THU|fri|FRI|sat|SAT)){0,6})(-?\\w+?)?))$|^(@(reboot|yearly|annualy|monthly|weekly|daily|hourly))$"
+              ((([\\\\*]{1}){1})|((\\\\*\\\\\\/){0,1}(([1-9]{1}){1}|(([1-2]{1}){1}([0-9\\/\\*\\-\\,]{1}){1,}){1}|([3]{1}){1}([0-1]{1}){1}))|(jan|feb|mar|apr|may|jun|jul|aug|sep|okt|nov|dec)(-?\\w+?)?)
+              ((([\\\\*]{1}){1})|((\\\\*\\\\\\/){0,1}(([0-7]{1,}(-?[0-7]?(,[0-7]){0,6})){1}))|((sun|mon|tue|wed|thu|fri|sat)?(,(sun|mon|tue|wed|thu|fri|sat)){0,6})(-?\\w+?)?))$"
       - type: spinner
         name: backupCount
         caption: Number of backups
         min: 1
         max: 10
         default: 5
-      - caption: Backup Storage
+      - caption: Backup storage
         type: list
         name: storageName
         dependsOn: region
@@ -148,7 +148,7 @@ settings:
       settings.fields.push({
           "caption": "Backup",
           "type": "list",
-          "tooltip": "Select the time stamp for which you want to restore the contents of the web site",
+          "tooltip": "Select the time stamp for which you want to restore the contents of the web site",          
           "name": "backupDir",
           "required": true,
           "values": backupListPrepared
@@ -274,7 +274,7 @@ actions:
   backup:
     - callScript: backup
     
-  restore:
+	restore:
     - callScript: uninstall
     - getStorageCtid
     - script: |-
@@ -295,7 +295,7 @@ actions:
         var umount = jelastic.env.file.RemoveMountPointById('${env.envName}', session, '${nodes.cp.master.id}', "/opt/backup");
         return {result: 0};
     - callScript: install
-
+    
   configure:
     - setSchedule
         
