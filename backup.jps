@@ -82,9 +82,13 @@ settings:
               editable: false
               values: values
           3:
-            - name: cronTime
-              caption: Backup schedule
-              type: string
+	          - name: cronTime	
+              caption: Backup schedule	
+              tooltip: "<span>A simple <a href=\"https://en.wikipedia.org/wiki/Cron#Overview\"> cron-based</a>	
+    scheduler to automatically start and stop environment based on prescribed timing	
+    instructions.</span><div><b>Note</b> that the required timestamps should be specified	
+    respectively to the UTC time zone.</div>"              	
+              type: string	
               default: 0 0 * * *
               regexText: Cron syntax is incorrect!
               regex: "^(((([\\\\*]{1}){1,})|((\\\\*\\\\\\/){0,1}(([0-9\\/\\*\\-\\,]{1}){1,}|(([1-5]{1}){1}([0-9\\/\\*\\-\\,]{1}){1,}){1})))
@@ -144,6 +148,7 @@ settings:
       settings.fields.push({
           "caption": "Backup",
           "type": "list",
+          "tooltip": "Select the time stamp for which you want to restore the contents of the web site",
           "name": "backupDir",
           "required": true,
           "values": backupListPrepared
