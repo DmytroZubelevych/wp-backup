@@ -39,7 +39,7 @@ return {
         "default": "1",
         "values": {
           "1": "Standalone",
-          "2": "Cluster (GlusterFS) nodes"
+          "2": "Cluster"
         },
         "showIf": {
           "2": [
