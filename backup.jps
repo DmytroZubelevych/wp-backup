@@ -5,6 +5,8 @@ id: wp-backup
 logo: /images/backup-logo.png
 description: Backup Add-On for WordPress sites. It can be used to create scheduled backups according to any required timezone and restore corrupted websites, even if the content has been completely deleted.
 baseUrl: https://raw.githubusercontent.com/DmytroZubelevych/wp-backup/master
+categories:
+  - wordpress/extra
 
 targetNodes:
   nodeGroup: cp
