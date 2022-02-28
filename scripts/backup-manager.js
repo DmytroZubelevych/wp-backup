@@ -87,6 +87,17 @@ function BackupManager(config) {
 	    [ me.removeMountForBackup ]
         ]);
     };
+	
+    me.sendBackupFailedEmail = function () {
+	var title = "Database backup failed for " + envDomain,
+    	    text = "Database backup failed for the environment " + envDomain + " of " + user.email + " with error message " + message;
+	try {
+    	    resp = jelastic.message.email.Send(appid, signature, null, user.email, user.email, title, text);
+	} catch (ex) {
+    	    resp = error(Response.ERROR_UNKNOWN, toJSON(ex));
+	}
+        return resp;
+    }
 
     me.addMountForBackup = function addMountForBackup() {
 	//a bit shitty, needs refactoring
