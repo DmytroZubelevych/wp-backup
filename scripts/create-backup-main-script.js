@@ -7,7 +7,8 @@ var scriptName        = getParam("scriptName", "${env.envName}-wp-backup"),
     userId            = getparam("userId", ""),
     backupCount       = getParam("backupCount", "5"),
     storageNodeId     = getParam("storageNodeId"),
-    backupExecNode    = getParam("backupExecNode");
+    backupExecNode    = getParam("backupExecNode"),
+    userEmail         = getparam("userEmail");
 
 function run() {
     var BackupManager = use("scripts/backup-manager.js", {
