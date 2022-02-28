@@ -14,7 +14,8 @@ function run() {
         envAppid          : "${envAppid}",
         storageNodeId     : "${storageNodeId}",
         backupExecNode 	  : "${backupExecNode}",
-        backupCount       : "${backupCount}"
+        backupCount       : "${backupCount}",
+        userEmail         : "${userEmail}"
     });
 
     jelastic.local.ReturnResult(
