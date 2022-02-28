@@ -12,6 +12,7 @@ function BackupManager(config) {
      *  storageNodeId : {String}
      *  backupExecNode : {String}
      *  [backupCount] : {String}
+     *  userEmail: {String}
      * }} config
      * @constructor
      */
